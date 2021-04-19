@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+@layout MainLayout
+
+<nav>
+    <CascadingValue Value="this">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="@JobName" Match="NavLinkMatch.All">
+                    Overview
+                </NavLink>
+                <NavLink class="nav-link" href="@($"{JobName}/tests")" Match="NavLinkMatch.All">
+                    Tests
+                </NavLink>
+                <NavLink class="nav-link" href="@($"{JobName}/static-analysis")" Match="NavLinkMatch.All">
+                    Static analysis
+                </NavLink>
+            </li>
+        </ul>
+    </CascadingValue>
+    <div>
+        @Body
+    </div>
+</nav>

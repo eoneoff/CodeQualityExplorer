@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CodeQualityExplorer.Pages
 {
-    public partial class JobData
+    public partial class TestData
     {
         [Parameter]
         public string JobName { get; set; }
@@ -15,7 +15,7 @@ namespace CodeQualityExplorer.Pages
         [CascadingParameter]
         public JobLayout Layout { get; set; }
 
-        protected override void OnAfterRender(bool firstRender)
+        protected override async Task OnInitializedAsync()
         {
             Layout.JobName = JobName;
         }
