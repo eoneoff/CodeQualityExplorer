@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+
+<div>
+    <header>
+        <div class="d-flex flex-column flex-lg-row px-2 py-1">
+            <div class="d-flex flex-column flex-grow-1">
+                <h3 class="display-4 text-center flex-grow-1 align-text-middle mx-auto">Code Quality Explorer</h3>
+            </div>
+        </div>
+    </header>
+    <div>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                        Server info
+                    </NavLink>
+                </li>
+                @foreach (var job in Jobs ?? Enumerable.Empty<JenkinsProject>())
+                {
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="@job.Name" Match="NavLinkMatch.Prefix">
+                            @job.Name
+                        </NavLink>
+                    </li>
+                }
+            </ul>
+        </nav>
+        <main class="container-fluid flex-grow-1 main-panel">
+            @Body
+        </main>
+    </div>
+    <footer>
+        <span>©  giraffic — 2021-@DateTime.Today.Year</span>
+    </footer>
+</div>
